@@ -1,103 +1,137 @@
-import Image from "next/image";
+export const metadata = {
+  title: "Waqia — Islamic app",
+  description:
+    "Minimal Islamic app landing. Domain waqia.app is available for purchase. Arabic typography, subtle geometry, GitHub and Telegram links.",
+  alternates: { canonical: "/" },
+  keywords: [
+    "Waqia",
+    "الواقعة",
+    "Islamic UI",
+    "Quran surah",
+    "Modern Islamic design",
+    "waqia.app",
+    "domain for sale",
+    "buy domain",
+    "купить домен",
+  ],
+};
 
 export default function Home() {
   return (
-    <div className="font-sans grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="font-mono list-inside list-decimal text-sm/6 text-center sm:text-left">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] font-mono font-semibold px-1 py-0.5 rounded">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
+    <main className="relative min-h-dvh w-full overflow-hidden">
+      <div className="pointer-events-none absolute inset-0 islamic-grid opacity-[.35]" />
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
+      <section className="relative mx-auto flex max-w-3xl flex-col items-center gap-8 px-6 py-24  text-center sm:gap-10 sm:py-28">
+        {/* JSON-LD structured data */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              '@context': 'https://schema.org',
+              '@type': 'WebSite',
+              name: 'Waqia',
+              url: 'https://waqia.app/',
+              description:
+                'Minimal Islamic app landing. Domain waqia.app is available for purchase. Arabic typography, subtle geometry, GitHub and Telegram links.',
+              inLanguage: 'en',
+              sameAs: [
+                'https://github.com/AlanC8',
+                'https://t.me/sevenstragen',
+              ],
+              author: {
+                '@type': 'Person',
+                name: 'Alan',
+                url: 'https://github.com/AlanC8',
+              },
+            }),
+          }}
+        />
+        {/* JSON-LD for domain sale offer */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              '@context': 'https://schema.org',
+              '@type': 'Offer',
+              url: 'https://waqia.app/',
+              availability: 'https://schema.org/InStock',
+              itemOffered: {
+                '@type': 'Product',
+                name: 'waqia.app domain',
+                description: 'Short, memorable Islamic brandable domain name',
+              },
+              seller: {
+                '@type': 'Person',
+                name: 'Alan',
+                sameAs: [
+                  'https://t.me/sevenstragen',
+                  'https://github.com/AlanC8',
+                ],
+              },
+            }),
+          }}
+        />
+        {/* Domain for sale CTA */}
+        <a
+          href="https://t.me/sevenstragen"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="soft-card mb-2 inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/5 px-4 py-2 text-xs text-[var(--muted)] backdrop-blur-md hover:text-[var(--color-foreground)]"
+        >
+          <span className="h-[6px] w-[6px] rounded-full bg-[var(--accent)]" />
+          Домен waqia.app доступен к покупке — Связаться
+          <span className="opacity-70">→</span>
+        </a>
+        <div className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/5 px-4 py-1 text-xs text-[var(--muted)] backdrop-blur-md">
+          <span className="h-[6px] w-[6px] rounded-full bg-[var(--accent)]" />
+          Islamic app
+        </div>
+
+        <h1 className="font-sans text-4xl font-semibold tracking-tight text-[var(--color-foreground)] sm:text-6xl">
+          Waqia
+        </h1>
+        <h2 className="[font-family:var(--font-arabic)] text-2xl leading-snug text-[var(--color-foreground)]/90 sm:text-3xl">
+          الواقعة — جمال بسيط، روح معاصرة
+        </h2>
+
+        <p className="max-w-2xl text-balance text-base leading-7 text-[var(--muted)] sm:text-lg">
+          A serene, modern interface inspired by Islamic geometry and balance. Built for clarity and calm.
+        </p>
+        <p className="max-w-2xl text-pretty text-sm leading-6 text-[var(--muted)]/90">
+          “Waqia” — это название суры в Коране (аль-Вакиа, араб. «الواقعة»).
+        </p>
+
+        <div className="mt-4 grid w-full grid-cols-1 gap-4 sm:grid-cols-2">
           <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
+            href="https://github.com/AlanC8"
+            className="link soft-card group flex items-center justify-center gap-2 rounded-xl px-5 py-3 text-sm transition-colors"
             target="_blank"
             rel="noopener noreferrer"
           >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
+            <span className="i-[github]" aria-hidden />
+            GitHub
+            <span className="transition-transform group-hover:translate-x-0.5">→</span>
           </a>
           <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
+            href="https://t.me/sevenstragen"
+            className="link soft-card group flex items-center justify-center gap-2 rounded-xl px-5 py-3 text-sm transition-colors"
             target="_blank"
             rel="noopener noreferrer"
           >
-            Read our docs
+            Telegram
+            <span className="transition-transform group-hover:translate-x-0.5">→</span>
           </a>
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
-    </div>
+
+        <div className="mt-12 grid grid-cols-3 gap-3 opacity-80 sm:gap-4">
+          <div className="size-2 rounded-full bg-[var(--accent)]/70" />
+          <div className="size-2 rounded-full bg-[var(--accent)]/40" />
+          <div className="size-2 rounded-full bg-[var(--accent)]/70" />
+        </div>
+      </section>
+
+      <div className="pointer-events-none absolute -left-24 -top-24 h-72 w-72 rounded-full bg-[var(--accent)]/10 blur-3xl" />
+      <div className="pointer-events-none absolute -bottom-24 -right-24 h-72 w-72 rounded-full bg-[var(--ring)]/10 blur-3xl" />
+    </main>
   );
 }

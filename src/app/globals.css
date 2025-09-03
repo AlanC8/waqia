@@ -1,8 +1,11 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #0b0f10;
+  --foreground: #e7ecef;
+  --muted: #9aa4aa;
+  --accent: #12b886; /* emerald */
+  --ring: #1f6f78;
 }
 
 @theme inline {
@@ -10,17 +13,51 @@
   --color-foreground: var(--foreground);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
+  --font-arabic: var(--font-arabic);
+  --color-accent: var(--accent);
 }
 
-@media (prefers-color-scheme: dark) {
+@media (prefers-color-scheme: light) {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --background: #fcfffe;
+    --foreground: #0f1b1d;
+    --muted: #5c6b73;
+    --accent: #0f766e;
+    --ring: #79d2c4;
   }
 }
 
 body {
-  background: var(--background);
+  background: radial-gradient(1200px 800px at 100% -10%, rgba(18, 184, 134, 0.06), transparent 60%),
+    radial-gradient(900px 600px at -10% 20%, rgba(31, 111, 120, 0.08), transparent 60%),
+    var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-geist-sans), var(--font-arabic), system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Noto Sans", "Apple Color Emoji", "Segoe UI Emoji";
+  min-height: 100dvh;
+}
+
+/* Subtle tessellated star pattern using CSS paint-like gradient layering */
+.islamic-grid {
+  background-image:
+    linear-gradient(60deg, rgba(255,255,255,0.04) 1px, transparent 1px),
+    linear-gradient(-60deg, rgba(255,255,255,0.04) 1px, transparent 1px),
+    linear-gradient(0deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+  background-size: 24px 24px, 24px 24px, 24px 24px;
+  background-position: 0 0, 0 0, 0 0;
+}
+
+.soft-card {
+  background: color-mix(in oklab, var(--background) 92%, var(--foreground) 8%);
+  border: 1px solid color-mix(in oklab, var(--foreground) 15%, transparent);
+  box-shadow: 0 1px 0 rgba(255,255,255,0.04) inset, 0 10px 30px rgba(0,0,0,0.25);
+}
+
+.link {
+  color: var(--color-foreground);
+  border: 1px solid rgba(255,255,255,0.12);
+}
+
+.link:hover {
+  background: color-mix(in oklab, var(--color-foreground) 6%, transparent);
+  border-color: color-mix(in oklab, var(--accent) 50%, rgba(255,255,255,0.2));
 }
